@@ -1,26 +1,105 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import imgCollection1 from "./assets/images/collection1.jpg"
+import imgCollection2 from "./assets/images/collection2.jpg"
+import imgCollection3 from "./assets/images/collection3.jpg"
+import imgCollection4 from "./assets/images/collection4.jpg"
+
+import { Collection } from "./components/Collection"
+import {Header} from "./components/Header"
+import {Footer} from "./components/Footer"
+import {Brand} from "./components/Brand"
+import {Newsletter} from "./components/Newsletter"
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
+    <main>
+        <div className="container">
+
+          <Collection />
+
+            <div className="carousel">
+                <div className="carousel-item">
+                    <div className="carousel-caption">
+                        <h5>Coleção</h5>
+                        <h4>Feminina <span>2021</span></h4>
+                        <p>Um texto aqui para falar um pouco sobre a coleção Feminina 2021</p>
+                        <button>Conheça nossa coleção</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div className="products">
+                <div className="card">
+                    <img src="assets/images/product1.jpg" />
+                    <div className="card-body">
+                        <h5>Conjunto de casaco e calça preta</h5>
+                        <div className="details">
+                            <div className="star-rating">
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star"></i>
+                                <i className="bi bi-star"></i>
+                            </div>
+                            <div className="price">
+                                <h3>R$600,00</h3>
+                                <p>10 x R$ 60,00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="card">
+                    <img src="assets/images/product2.jpg" />
+                    <div className="card-body">
+                        <h5>Conjunto de casaco e calça preta</h5>
+                        <div className="details">
+                            <div className="star-rating">
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star"></i>
+                            </div>
+                            <div className="price">
+                                <h3>R$600,00</h3>
+                                <p>10 x R$ 60,00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="card">
+                    <img src="assets/images/product3.jpg" />
+                    <div className="card-body">
+                        <h5>Conjunto de casaco e calça preta</h5>
+                        <div className="details">
+                            <div className="star-rating">
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                            </div>
+                            <div className="price">
+                                <h3>R$600,00</h3>
+                                <p>10 x R$ 60,00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <Newsletter/>
+    <div className="container">
+        <Brand/>
+    </div>
+    <Footer/>
     </div>
   );
 }
-
 export default App;
