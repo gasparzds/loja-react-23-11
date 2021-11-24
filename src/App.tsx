@@ -6,13 +6,20 @@ import imgCollection4 from "./assets/images/collection4.jpg"
 import { Collection } from "./components/Collection"
 import {Header} from "./components/Header"
 import {Footer} from "./components/Footer"
-import {Brand} from "./components/Brand"
+import {Brands} from "./components/Brand"
 import {Newsletter} from "./components/Newsletter"
 
 
 
 function App() {
-  return (
+    const brands = [
+        {alt: 'brand1', source: 'assets/images/brand1.png'},
+        {alt: 'brand2', source: 'assets/images/brand2.png'},
+        {alt: 'brand3', source: 'assets/images/brand3.png'},
+        {alt: 'brand4', source: 'assets/images/brand4.png'},
+        {alt: 'brand5', source: 'assets/images/brand5.png'},
+    ]
+    return (
     <div>
       <Header/>
     <main>
@@ -96,7 +103,7 @@ function App() {
     </main>
     <Newsletter/>
     <div className="container">
-        <Brand/>
+        <Brands items={brands}/>
     </div>
     <Footer/>
     </div>
