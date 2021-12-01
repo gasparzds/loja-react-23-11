@@ -8,8 +8,10 @@ import {Header} from "./components/Header"
 import {Footer} from "./components/Footer"
 import {Brands} from "./components/Brand"
 import {Newsletter} from "./components/Newsletter"
-
-
+import {Products} from "./components/Products"
+import { useEffect, useState } from "react"
+import {Product} from './@types'
+import axios from "axios"
 
 function App() {
     const brands = [
@@ -18,7 +20,20 @@ function App() {
         {alt: 'brand3', source: 'assets/images/brand3.png'},
         {alt: 'brand4', source: 'assets/images/brand4.png'},
         {alt: 'brand5', source: 'assets/images/brand5.png'},
-    ]
+    ];
+
+    const [products, setProducts] = useState<Product[]>([] as Product[]);
+    useEffect(() => {
+        //TODO: CARREGUE DO SERVER OS DADOS DO PRODUTOS
+        axios.get('http://localhost:3333/products')
+        .then(result =>{
+            setProducts(result.data);
+        })
+        .catch(error =>{
+            console.log('ERRO!',error);
+        })  
+    },[]);
+
     return (
     <div>
       <Header/>
@@ -38,66 +53,7 @@ function App() {
                 </div>
             </div>
 
-            
-            <div className="products">
-                <div className="card">
-                    <img src="assets/images/product1.jpg" />
-                    <div className="card-body">
-                        <h5>Conjunto de casaco e calça preta</h5>
-                        <div className="details">
-                            <div className="star-rating">
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star"></i>
-                                <i className="bi bi-star"></i>
-                            </div>
-                            <div className="price">
-                                <h3>R$600,00</h3>
-                                <p>10 x R$ 60,00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <img src="assets/images/product2.jpg" />
-                    <div className="card-body">
-                        <h5>Conjunto de casaco e calça preta</h5>
-                        <div className="details">
-                            <div className="star-rating">
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star"></i>
-                            </div>
-                            <div className="price">
-                                <h3>R$600,00</h3>
-                                <p>10 x R$ 60,00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <img src="assets/images/product3.jpg" />
-                    <div className="card-body">
-                        <h5>Conjunto de casaco e calça preta</h5>
-                        <div className="details">
-                            <div className="star-rating">
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                                <i className="bi bi-star-fill"></i>
-                            </div>
-                            <div className="price">
-                                <h3>R$600,00</h3>
-                                <p>10 x R$ 60,00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Products items={products} />
 
         </div>
     </main>
